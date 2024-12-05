@@ -1,0 +1,27 @@
+<section style="background-color:var(--bs-primary-bg)" id="feasts">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Feasts</h2>
+  </div>
+  <div class="container-fluid m-0 w-100 mt-4 mb-4" id="ordo"  data-aos="fade-up">
+    <div class="d-flex overflow-auto gap-3 feasts">
+      @for (feast of feasts; track $index) {
+        <div class="calendar-card text-center border rounded shadow-sm position-relative" (click)="openEvent(feast)">
+          <div class="red-bar"></div>
+          <div id="date">
+            @let date = getDate(feast.date);
+            @if (date) {
+              <div class="day fs-1 fw-bold">{{ date.day }}</div>
+              <div class="month text-uppercase">{{ getMonthName ( date.month ) }}</div>
+            } @else {
+              <div class="day fs-1 fw-bold">{{ feast.date }}</div>
+            }
+          </div>
+          <div class="title">{{ feast.name }}</div>
+        </div>
+      }
+    </div>
+    <p class="text-center clickable mt-3" (click)="openEvent(other_feasts['ImmaculateHeart'])">
+      The Feast of the Immaculate Heart is the Saturday following the Second Sunday after Pentecost.&nbsp;<fa-icon [icon]="faInfo" />
+    </p>
+  </div>
+</section>

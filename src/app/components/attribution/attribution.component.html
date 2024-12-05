@@ -1,0 +1,29 @@
+<footer id="footer" class="footer position-relative" style="background-color:var(--bs-secondary-bg)">
+  <div class="container">
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img src="/img/author.jpg" alt="Author's Picture" style="border: 2px white solid; width: 60px; border-radius: 50%; margin-right: 10px;">
+    </div>
+    <div class="copyright">
+      <span>
+        {{copyrightNotice()}}
+      </span>
+    </div>
+    <div class="credits">
+      Designed by <strong class="px-1 sitename">Matthew Frankland</strong>
+    </div>
+    <div class="social-links d-flex justify-content-center mt-2">
+      <a href="mailto:admin@matthewfrankland.co.uk">
+        <fa-icon [icon]="faEmail"></fa-icon>
+      </a>
+      <a href="https://github.com/m-f-1998">
+        <fa-icon [icon]="faGithub"></fa-icon>
+      </a>
+      <a href="https://www.linkedin.com/in/mf48/">
+        <fa-icon [icon]="faLinkedin"></fa-icon>
+      </a>
+      <a href="https://matthewfrankland.co.uk">
+        <fa-icon [icon]="faWebsite"></fa-icon>
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,37 @@
+<section style="background-color:var(--bs-secondary-bg)" id="prayers">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Prayers</h2>
+  </div>
+    <div class="container">
+      <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        <ul class="prayers-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+          <li
+            (click)="filterItems('*')"
+            style="margin: 5px;"
+            [class]="isFilterActive('*') ? 'filter-active' : ''">All</li>
+          @for (category of getCategories(); track $index) {
+            <li
+              (click)="filterItems(category)"
+              style="margin: 5px;"
+              [class]="isFilterActive(category) ? 'filter-active' : ''"
+              [attr.data-filter]="'.filter-' + category"
+            >{{ getCategoryTitle ( category ) }}</li>
+          }
+        </ul>
+
+        <div #isotopeContainer class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+          @for (category of getCategories(); track $index) {
+            @for (prayer of getPrayers(category); track $index) {
+              <div class="clickable col-lg-4 col-md-6 prayers-item isotope-item filter-{{ category }}" (click)="openPrayer(prayer)">
+                <img src="{{ prayer.image }}" class="img-fluid rounded w-100" alt="{{prayer.name}}">
+                <div class="prayers-info">
+                  <h4>{{ prayer.name }}</h4>
+                  <p>{{ getShortDescription(prayer.description) }}</p>
+                </div>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+</section>

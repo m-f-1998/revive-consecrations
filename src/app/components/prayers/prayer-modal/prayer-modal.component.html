@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{prayer?.name}}</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="text-center">
+      @if (prayer && prayer.image) {
+        <figure class="figure">
+          <img src="{{prayer.image}}" alt="{{prayer.name}}" class="figure-img rounded img-fluid" style="max-height: 350px;">
+          <figcaption class="figure-caption">{{prayer.description}}</figcaption>
+        </figure>
+      }
+      <p class="m-0" style="white-space: pre-wrap;">
+        <i>
+          {{prayer?.text}}
+        </i>
+      </p>
+    </div>
+  </div>
+</div>

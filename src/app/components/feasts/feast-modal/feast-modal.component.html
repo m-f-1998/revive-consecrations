@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{feast?.name}}</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div [class]="feast?.image ? 'col-md-6' : ''">
+      @let date = getDate(feast?.date!);
+      @if (date) {
+        <p><i>Feast celebrated on: {{date}}</i></p>
+      } @else {
+        <p><i>Celebration: {{feast?.date}}</i></p>
+      }
+      <p>{{feast?.description}}</p>
+    </div>
+    @if (feast && feast.image) {
+      <div class="col-md-6 text-center align-content-center">
+        <img src="{{feast.image}}" alt="{{feast.name}}" class="img-fluid">
+      </div>
+    }
+  </div>
+</div>

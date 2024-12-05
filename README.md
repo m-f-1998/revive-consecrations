@@ -1,2 +1,3 @@
-# our-lady-of-sorrows
-Our Lady of Sorrows Devotional Website
+# Devotion to Our Lady
+
+A website dedicated to Catholic Devotion of Our Lady.
