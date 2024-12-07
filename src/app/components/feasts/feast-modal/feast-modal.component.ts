@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core"
-import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
 
 @Component ( {
   selector: "app-feast-modal",
@@ -20,9 +19,7 @@ export class FeastModalComponent {
     image?: string
   } | undefined
 
-  public constructor (
-    private activeModal: NgbActiveModal
-  ) { }
+  public constructor ( ) { }
 
   public getMonthName ( month: number ): string {
     return new Intl.DateTimeFormat ( "en-US", { month: "long" } ).format (
@@ -39,9 +36,5 @@ export class FeastModalComponent {
     } else {
       return null
     }
-  }
-
-  public close ( ) {
-    this.activeModal.close ( )
   }
 }
