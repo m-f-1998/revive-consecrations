@@ -40,7 +40,7 @@ export class NavbarComponent {
       icon: faBrain
     },
     {
-      name: "Consecrations",
+      name: "Total Consecration",
       id: "consecration",
       icon: faGlobe
     }
