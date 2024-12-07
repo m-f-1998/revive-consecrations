@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "our-lady-of-sorrows": {
+    "our-lady": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/our-lady-of-sorrows",
+            "outputPath": "dist/our-lady",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,7 +37,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "node_modules/aos/dist/aos.js"
             ]
           },
@@ -69,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "our-lady-of-sorrows:build:production"
+              "buildTarget": "our-lady:build:production"
             },
             "development": {
-              "buildTarget": "our-lady-of-sorrows:build:development"
+              "buildTarget": "our-lady:build:development"
             }
           },
           "defaultConfiguration": "development"

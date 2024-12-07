@@ -22,9 +22,11 @@
         <div #isotopeContainer class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
           @for (category of getCategories(); track $index) {
             @for (prayer of getPrayers(category); track $index) {
-              <div class="clickable col-lg-4 col-md-6 prayers-item isotope-item filter-{{ category }}" (click)="openPrayer(prayer)">
+              <div
+                class="clickable col-lg-4 col-md-6 prayers-item isotope-item filter-{{ category }}"
+                (click)="openPrayer(prayer)">
                 <img src="{{ prayer.image }}" class="img-fluid rounded w-100" alt="{{prayer.name}}">
-                <div class="prayers-info">
+                <div class="prayers-info show-hover">
                   <h4>{{ prayer.name }}</h4>
                   <p>{{ getShortDescription(prayer.description) }}</p>
                 </div>

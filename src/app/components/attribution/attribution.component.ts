@@ -24,4 +24,8 @@ export class AttributionComponent {
     const year = new Date ( ).getFullYear ( )
     return `© ${year}. All rights reserved.`
   }
+
+  public goToAuthor ( ) {
+    window.location.href = "https://matthewfrankland.co.uk"
+  }
 }

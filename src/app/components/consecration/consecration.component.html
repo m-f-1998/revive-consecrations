@@ -1,5 +1,53 @@
 <section style="background-color:var(--bs-primary-bg)" id="consecration">
   <div class="container section-title" data-aos="fade-up">
-    <h2>Consecrations</h2>
+    <h2>Total Consecration</h2>
+  </div>
+  <div class="container">
+    @let today = isConsecrationActive ( );
+    @if (today != -1 ) {
+      <div class="text-center">
+        <h4>{{consecration[today].title}}</h4>
+      </div>
+      <div class="text-center">
+        <p>{{consecration[today].description}}</p>
+      </div>
+      <div class="gap-2 d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="goToDay(consecration[today])">
+          <fa-icon [icon]="faCalendarDay" /> Go to Day
+        </button>
+        <button class="btn btn-primary" (click)="joinUs()">
+          <fa-icon [icon]="faWhatsApp" /> Join Us
+        </button>
+      </div>
+    } @else {
+      <figure class="text-center mt-3">
+        <blockquote class="blockquote">
+          <p>
+            "The Immculate alone has from God the promise of victory over Satan. She seeks souls that will consecrate themselves entirely to her, that will become in her hands forceful instruments for the defeat of Satan and the spread of God's kingdom."
+          </p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+          <cite title="Source Title">St. Maximilian Kolbe</cite>
+        </figcaption>
+      </figure>
+      <div class="text-center">
+        St. Louis de Montfort (1673 – 1716) had a profound devotion to the Blessed Virgin Mary and wrote extensively on the virtues of Our Lady, what true devotion to her consists in, and how the faithful need to turn to her as the way to her Son, Jesus Christ.<br /><br />
+        In his classic writings ( The Secret of Mary, The Secret of the Rosary, and True Devotion to Mary) he recommends that the faithful formally consecrate themselves to the Blessed Mother. For this end he developed a specific 33-day program consisting of various prayers and readings to help the faithful detach themselves from the world and bond themselves more closely with Christ through the example and intercession of the Blessed Virgin Mary. This 33-day program can be found in his classic work True Devotion to Mary.<br /><br />
+        St. Louis de Montfort stands in a long tradition of saints completely devoted to Our Lady, and his work has been influential in the lives of many other saints, notable among them is Pope St. John Paul II who took his papal motto, "Totus Tuus" (Totally Yours) from de Montfort.<br /><br />
+        <button class="btn btn-primary" (click)="goToMore()">
+          <fa-icon [icon]="faInfo" /> Read More
+        </button>
+      </div>
+    }
+    <figure class="text-center mt-3">
+      <blockquote class="blockquote">
+        <p>
+          "Happy are the faithful slaves of the Queen of Heaven, for they will enjoy true freedom."
+        </p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        <cite title="Source Title">St. Cecilia to Mother Agnes of Jesus, as quoted by St. Louis de Montfort</cite>
+      </figcaption>
+    </figure>
   </div>
 </section>

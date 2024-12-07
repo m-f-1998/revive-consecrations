@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core"
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core"
 import { prayers } from "@app/data"
 import Isotope from "isotope-layout"
 import imagesLoaded from "imagesloaded"
@@ -12,16 +12,21 @@ import { PrayerModalComponent } from "./prayer-modal/prayer-modal.component"
   templateUrl: "./prayers.component.html",
   styleUrl: "./prayers.component.scss"
 } )
-export class PrayersComponent implements AfterViewInit {
+export class PrayersComponent implements OnInit, AfterViewInit {
   public prayers = prayers
   @ViewChild ( "isotopeContainer", { static: false } ) isotopeContainer!: ElementRef
   private isotope!: Isotope
+  public isTouchDevice: boolean = true
 
   public currentFilter: string = "*"
 
   public constructor (
     public modalSvc: NgbModal
   ) { }
+
+  public ngOnInit ( ) {
+    // this.isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0
+  }
 
   public ngAfterViewInit ( ) {
     imagesLoaded ( this.isotopeContainer.nativeElement, () => {
