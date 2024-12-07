@@ -1,12 +1,14 @@
 import { Component } from "@angular/core"
 import { faBars, faBoxesStacked, faBrain, faCalendar, faClose, faEnvelope, faGlobe, faHouse, faImage, faPrayingHands } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
+import { NgbCollapseModule } from "@ng-bootstrap/ng-bootstrap"
 
 @Component ( {
   selector: "app-navbar",
   standalone: true,
   imports: [
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbCollapseModule
   ],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss"
@@ -45,6 +47,7 @@ export class NavbarComponent {
       icon: faGlobe
     }
   ]
+  public isNavCollapsed = true
 
   public scrollto ( id: string ) {
     const element = document.getElementById ( id )

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core"
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
 
 @Component ( {
   selector: "app-prayer-modal",
@@ -17,5 +18,11 @@ export class PrayerModalComponent {
     image: string
   } | undefined
 
-  public constructor ( ) { }
+  public constructor (
+    private activeModal: NgbActiveModal
+  ) { }
+
+  public close ( ) {
+    this.activeModal.close ( )
+  }
 }

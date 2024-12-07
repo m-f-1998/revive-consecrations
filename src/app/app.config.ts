@@ -1,7 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core"
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core"
 import { provideRouter } from "@angular/router"
 import { routes } from "./app.routes"
 import { IMAGE_CONFIG } from "@angular/common"
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,6 +12,9 @@ export const appConfig: ApplicationConfig = {
         disableImageSizeWarning: true
       }
     },
+    importProvidersFrom ( [
+      NgbModule
+    ] ),
     provideZoneChangeDetection ( { eventCoalescing: true } ),
     provideRouter ( routes )
   ]
