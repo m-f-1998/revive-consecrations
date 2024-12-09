@@ -22,11 +22,6 @@ export class NavbarComponent {
     icon: any
   }[ ] = [
     {
-      name: "Home",
-      id: "home",
-      icon: faHouse
-    },
-    {
       name: "Feasts",
       id: "feasts",
       icon: faCalendar
