@@ -1,5 +1,5 @@
 import { DatePipe } from "@angular/common"
-import { Component } from "@angular/core"
+import { ChangeDetectionStrategy, Component } from "@angular/core"
 import { consecration } from "@app/data"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
@@ -12,7 +12,8 @@ import { faCalendar, faCalendarDay, faInfoCircle } from "@fortawesome/free-solid
     FontAwesomeModule
   ],
   templateUrl: "./consecration.component.html",
-  styleUrl: "./consecration.component.scss"
+  styleUrl: "./consecration.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class ConsecrationComponent {
   public faCalendar: any = faCalendar

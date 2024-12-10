@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core"
+import { ApplicationConfig, importProvidersFrom, provideExperimentalZonelessChangeDetection } from "@angular/core"
 import { provideRouter } from "@angular/router"
 import { routes } from "./app.routes"
 import { IMAGE_CONFIG } from "@angular/common"
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom ( [
       NgbModule
     ] ),
-    provideZoneChangeDetection ( { eventCoalescing: true } ),
+    provideExperimentalZonelessChangeDetection ( ),
     provideRouter ( routes )
   ]
 }

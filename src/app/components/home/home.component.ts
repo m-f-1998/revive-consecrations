@@ -1,5 +1,4 @@
-import { Component } from "@angular/core"
-// import { faFacebook, faInstagram, faXTwitter } from "@fortawesome/free-brands-svg-icons"
+import { ChangeDetectionStrategy, Component } from "@angular/core"
 import Typed from "typed.js"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 
@@ -10,13 +9,11 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
     FontAwesomeModule
   ],
   templateUrl: "./home.component.html",
-  styleUrl: "./home.component.scss"
+  styleUrl: "./home.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class HomeComponent {
   public typed: Typed | undefined
-  // public faTwitter: any = faXTwitter
-  // public faInstagram: any = faInstagram
-  // public faFacebook: any = faFacebook
 
   public ngOnInit ( ) {
     this.typed = new Typed ( "#typed", {

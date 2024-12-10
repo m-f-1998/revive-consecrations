@@ -30,7 +30,6 @@
     "aos": "^2.3.4",
     "bootstrap": "^5.3.2",
     "date-fns": "^4.1.0",
-    "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -42,7 +41,6 @@
     "@angular/compiler-cli": "^18.2.13",
     "@angular/localize": "^18.2.13",
     "@types/aos": "^3.0.7",
-    "@types/imagesloaded": "^4.1.6",
     "@types/isotope-layout": "^3.0.14",
     "typescript": "~5.5.4"
   }

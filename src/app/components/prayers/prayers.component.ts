@@ -1,20 +1,22 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from "@angular/core"
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, QueryList, ViewChild, ViewChildren } from "@angular/core"
 import { prayers } from "@app/data"
 import Isotope from "isotope-layout"
-import imagesLoaded from "imagesloaded"
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { PrayerModalComponent } from "./prayer-modal/prayer-modal.component"
 
 @Component ( {
   selector: "app-prayers",
   standalone: true,
-  imports: [],
+  imports: [ ],
   templateUrl: "./prayers.component.html",
-  styleUrl: "./prayers.component.scss"
+  styleUrl: "./prayers.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
-export class PrayersComponent implements OnInit, AfterViewInit {
+export class PrayersComponent implements AfterViewInit {
   public prayers = prayers
   @ViewChild ( "isotopeContainer", { static: false } ) isotopeContainer!: ElementRef
+  @ViewChildren ( "prayerImage" ) imageRefs!: QueryList <ElementRef>
+
   private isotope!: Isotope
   public isTouchDevice: boolean = true
 
@@ -24,12 +26,22 @@ export class PrayersComponent implements OnInit, AfterViewInit {
     public modalSvc: NgbModal
   ) { }
 
-  public ngOnInit ( ) {
-    // this.isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0
-  }
-
   public ngAfterViewInit ( ) {
-    imagesLoaded ( this.isotopeContainer.nativeElement, () => {
+    const load = this.imageRefs.toArray ( ).map ( img =>
+      new Promise<void> ( ( resolve, reject ) => {
+        const element = img.nativeElement as HTMLImageElement
+
+        if ( element.complete ) {
+          // Already loaded
+          resolve ( )
+        } else {
+          // Wait for load event
+          element.onload = ( ) => resolve ( )
+          element.onerror = ( ) => reject ( `Failed to load image: ${element.src}` )
+        }
+      } )
+    )
+    Promise.all ( load ).then ( ( ) => {
       this.isotope = new Isotope ( this.isotopeContainer.nativeElement, {
         itemSelector: ".isotope-item",
         layoutMode: "masonry"

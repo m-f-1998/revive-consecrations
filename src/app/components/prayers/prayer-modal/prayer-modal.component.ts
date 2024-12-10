@@ -7,7 +7,7 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
   imports: [],
   templateUrl: "./prayer-modal.component.html",
   styleUrl: "./prayer-modal.component.scss",
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class PrayerModalComponent {
   @Input ( ) public prayer: {

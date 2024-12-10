@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { ChangeDetectionStrategy, Component } from "@angular/core"
 import { feasts, other_feasts } from "@app/data"
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { FeastModalComponent } from "./feast-modal/feast-modal.component"
@@ -12,7 +12,8 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
     FontAwesomeModule
   ],
   templateUrl: "./feasts.component.html",
-  styleUrl: "./feasts.component.scss"
+  styleUrl: "./feasts.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastsComponent {
   public feasts = feasts

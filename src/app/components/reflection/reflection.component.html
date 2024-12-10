@@ -2,7 +2,7 @@
   <div class="reflection section-title" data-aos="fade-up">
     <h2>Reflections</h2>
   </div>
-  <div class="container mt-4">
+  <div class="container-fluid mt-4" data-aos="fade-up">
     <div class="w-100 text-center mb-4">
       <div ngbDropdown class="d-inline-block">
         <button type="button" class="btn btn-primary" ngbDropdownToggle>{{videos[selected].title}}</button>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="video-container">
-      <youtube-player disablePlaceholder disableCookies [videoId]="videos[selected].id" [width]="calculateVideoWidth()" />
+      <youtube-player disablePlaceholder disableCookies [videoId]="videos[selected].id" [width]="videoWidth()" />
     </div>
   </div>
 </section>

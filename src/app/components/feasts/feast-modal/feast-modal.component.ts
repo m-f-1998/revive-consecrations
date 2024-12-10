@@ -7,7 +7,7 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
   imports: [],
   templateUrl: "./feast-modal.component.html",
   styleUrl: "./feast-modal.component.scss",
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastModalComponent {
   @Input ( ) public feast: {

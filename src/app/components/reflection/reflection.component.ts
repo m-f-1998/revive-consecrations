@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from "@angular/core"
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect, signal } from "@angular/core"
 import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
 import { YouTubePlayer } from "@angular/youtube-player"
 import { videos } from "@app/data";
@@ -12,17 +12,31 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     NgbModule
   ],
   templateUrl: "./reflection.component.html",
-  styleUrl: "./reflection.component.scss"
+  styleUrl: "./reflection.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class ReflectionComponent {
 
   public videos = videos
   public selected = 0
 
+  public windowWidth = signal ( window.innerWidth )
+
+  public videoWidth = computed ( ( ) =>
+    this.windowWidth ( ) > 768 ? 640 : this.windowWidth ( ) - 24
+  )
+
   public constructor (
     public sanitizer: DomSanitizer,
     private changeDetectorRef: ChangeDetectorRef
-  ) { }
+  ) {
+    effect ( ( ) => {
+      const resizeHandler = ( ) => this.windowWidth.set ( window.innerWidth )
+      window.addEventListener ( "resize", resizeHandler )
+
+      return ( ) => window.removeEventListener ( "resize", resizeHandler )
+    } )
+  }
 
   public updateVideo ( index: number ) {
     this.selected = index
@@ -31,10 +45,6 @@ export class ReflectionComponent {
 
   public transform ( value: string ): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl ( value )
-  }
-
-  public calculateVideoWidth ( ) {
-    return window.innerWidth > 768 ? 640 : window.innerWidth - 24
   }
 
 }

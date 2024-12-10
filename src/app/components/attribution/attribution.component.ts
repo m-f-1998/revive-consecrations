@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { ChangeDetectionStrategy, Component } from "@angular/core"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons"
@@ -10,7 +10,8 @@ import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons"
     FontAwesomeModule
   ],
   templateUrl: "./attribution.component.html",
-  styleUrl: "./attribution.component.scss"
+  styleUrl: "./attribution.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class AttributionComponent {
   public faGithub: any = faGithub
