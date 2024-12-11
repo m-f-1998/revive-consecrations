@@ -6,14 +6,13 @@ import { faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 
 @Component ( {
-  selector: "app-feasts",
-  standalone: true,
-  imports: [
-    FontAwesomeModule
-  ],
-  templateUrl: "./feasts.component.html",
-  styleUrl: "./feasts.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-feasts",
+    imports: [
+        FontAwesomeModule
+    ],
+    templateUrl: "./feasts.component.html",
+    styleUrl: "./feasts.component.scss",
+    changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastsComponent {
   public feasts = feasts

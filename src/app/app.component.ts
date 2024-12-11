@@ -8,19 +8,18 @@ import { ReflectionComponent } from "./components/reflection/reflection.componen
 import { ConsecrationComponent } from "./components/consecration/consecration.component"
 
 @Component ( {
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  standalone: true,
-  imports: [
-    NavbarComponent,
-    HomeComponent,
-    FeastsComponent,
-    PrayersComponent,
-    AttributionComponent,
-    ReflectionComponent,
-    ConsecrationComponent
-  ],
-  styleUrl: "./app.component.scss"
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    imports: [
+        NavbarComponent,
+        HomeComponent,
+        FeastsComponent,
+        PrayersComponent,
+        AttributionComponent,
+        ReflectionComponent,
+        ConsecrationComponent
+    ],
+    styleUrl: "./app.component.scss"
 } )
 export class AppComponent {
   public title = "Our Lady"

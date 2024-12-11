@@ -5,15 +5,14 @@ import { videos } from "@app/data";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @Component ( {
-  selector: "app-reflection",
-  standalone: true,
-  imports: [
-    YouTubePlayer,
-    NgbModule
-  ],
-  templateUrl: "./reflection.component.html",
-  styleUrl: "./reflection.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-reflection",
+    imports: [
+        YouTubePlayer,
+        NgbModule
+    ],
+    templateUrl: "./reflection.component.html",
+    styleUrl: "./reflection.component.scss",
+    changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class ReflectionComponent {
 

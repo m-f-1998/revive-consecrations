@@ -6,14 +6,13 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { faCalendar, faCalendarDay, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 
 @Component ( {
-  selector: "app-consecration",
-  standalone: true,
-  imports: [
-    FontAwesomeModule
-  ],
-  templateUrl: "./consecration.component.html",
-  styleUrl: "./consecration.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-consecration",
+    imports: [
+        FontAwesomeModule
+    ],
+    templateUrl: "./consecration.component.html",
+    styleUrl: "./consecration.component.scss",
+    changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class ConsecrationComponent {
   public faCalendar: any = faCalendar

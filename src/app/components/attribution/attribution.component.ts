@@ -4,14 +4,13 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons"
 
 @Component({
-  selector: "app-attribution",
-  standalone: true,
-  imports: [
-    FontAwesomeModule
-  ],
-  templateUrl: "./attribution.component.html",
-  styleUrl: "./attribution.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-attribution",
+    imports: [
+        FontAwesomeModule
+    ],
+    templateUrl: "./attribution.component.html",
+    styleUrl: "./attribution.component.scss",
+    changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class AttributionComponent {
   public faGithub: any = faGithub

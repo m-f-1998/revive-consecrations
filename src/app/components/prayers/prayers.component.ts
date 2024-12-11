@@ -5,12 +5,11 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { PrayerModalComponent } from "./prayer-modal/prayer-modal.component"
 
 @Component ( {
-  selector: "app-prayers",
-  standalone: true,
-  imports: [ ],
-  templateUrl: "./prayers.component.html",
-  styleUrl: "./prayers.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-prayers",
+    imports: [],
+    templateUrl: "./prayers.component.html",
+    styleUrl: "./prayers.component.scss",
+    changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class PrayersComponent implements AfterViewInit {
   public prayers = prayers

@@ -4,14 +4,13 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 import { NgbCollapseModule } from "@ng-bootstrap/ng-bootstrap"
 
 @Component ( {
-  selector: "app-navbar",
-  standalone: true,
-  imports: [
-    FontAwesomeModule,
-    NgbCollapseModule
-  ],
-  templateUrl: "./navbar.component.html",
-  styleUrl: "./navbar.component.scss"
+    selector: "app-navbar",
+    imports: [
+        FontAwesomeModule,
+        NgbCollapseModule
+    ],
+    templateUrl: "./navbar.component.html",
+    styleUrl: "./navbar.component.scss"
 } )
 export class NavbarComponent {
   public faBars: any = faBars

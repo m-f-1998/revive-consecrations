@@ -3,14 +3,13 @@ import Typed from "typed.js"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 
 @Component ( {
-  selector: "app-home",
-  standalone: true,
-  imports: [
-    FontAwesomeModule
-  ],
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-home",
+    imports: [
+        FontAwesomeModule
+    ],
+    templateUrl: "./home.component.html",
+    styleUrl: "./home.component.scss",
+    changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class HomeComponent {
   public typed: Typed | undefined
