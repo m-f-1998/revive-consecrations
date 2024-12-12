@@ -1,0 +1,39 @@
+<div>
+  <div class="container-fluid p-4 flex-grow-1">
+    <div class="background"></div>
+    <div class="container section-title" data-aos="fade-up">
+      <a href="https://www.revivescotland.co.uk/" target="_blank" class>
+        <img src="/revive-logo.png" alt="Revive Scotland Logo" class="logo">
+      </a>
+      <figure class="text-center mt-3">
+        <blockquote class="blockquote">
+          <p>
+            "Know that God will never abandon you. Turn your eyes to him often. He gave his life for you on the cross because he loves you."
+          </p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+          <cite title="Source Title">Pope Benedict XVI</cite>
+        </figcaption>
+      </figure>
+      <div #isotopeContainer class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+        @for (consecration of consecrations; track $index) {
+          <div
+            class="clickable col-lg-4 col-md-6 prayers-item isotope-item"
+            (click)="openConsecration(consecration.id)">
+            <img #prayerImage src="{{ consecration.image }}" class="img-fluid rounded w-100" alt="{{consecration.title}}">
+            <div class="prayers-info show-hover">
+              <h4>{{ consecration.title }}</h4>
+              <p>{{ getShortDescription(consecration.description) }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <p>
+      + JMJ +
+    </p>
+  </div>
+  <app-attribution />
+</div>

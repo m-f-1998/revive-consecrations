@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect, signal } from "@angular/core"
-import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser";
+import { DomSanitizer, SafeResourceUrl } from "@angular/platform-browser"
 import { YouTubePlayer } from "@angular/youtube-player"
-import { videos } from "@app/data";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { videos } from "@consecrations/our-lady/data"
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
 
 @Component ( {
-    selector: "app-reflection",
-    imports: [
-        YouTubePlayer,
-        NgbModule
-    ],
-    templateUrl: "./reflection.component.html",
-    styleUrl: "./reflection.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-reflection",
+  imports: [
+    YouTubePlayer,
+    NgbModule
+  ],
+  templateUrl: "./reflection.component.html",
+  styleUrl: "./reflection.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class ReflectionComponent {
 

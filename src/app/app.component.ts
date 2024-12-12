@@ -1,26 +1,12 @@
 import { Component } from "@angular/core"
-import { NavbarComponent } from "./components/navbar/navbar.component"
-import { HomeComponent } from "./components/home/home.component"
-import { FeastsComponent } from "./components/feasts/feasts.component"
-import { PrayersComponent } from "./components/prayers/prayers.component"
-import { AttributionComponent } from "./components/attribution/attribution.component"
-import { ReflectionComponent } from "./components/reflection/reflection.component"
-import { ConsecrationComponent } from "./components/consecration/consecration.component"
+import { RouterOutlet } from "@angular/router";
 
 @Component ( {
     selector: "app-root",
     templateUrl: "./app.component.html",
     imports: [
-        NavbarComponent,
-        HomeComponent,
-        FeastsComponent,
-        PrayersComponent,
-        AttributionComponent,
-        ReflectionComponent,
-        ConsecrationComponent
+        RouterOutlet
     ],
     styleUrl: "./app.component.scss"
 } )
-export class AppComponent {
-  public title = "Our Lady"
-}
+export class AppComponent { }

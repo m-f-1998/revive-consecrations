@@ -1,18 +1,18 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core"
-import { feasts, other_feasts } from "@app/data"
+import { feasts, other_feasts } from "@consecrations/our-lady/data"
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { FeastModalComponent } from "./feast-modal/feast-modal.component"
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 
 @Component ( {
-    selector: "app-feasts",
-    imports: [
-        FontAwesomeModule
-    ],
-    templateUrl: "./feasts.component.html",
-    styleUrl: "./feasts.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-feasts",
+  imports: [
+    FontAwesomeModule
+  ],
+  templateUrl: "./feasts.component.html",
+  styleUrl: "./feasts.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastsComponent {
   public feasts = feasts

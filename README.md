@@ -1,3 +1,3 @@
-# Devotion to Our Lady
+# Revive Consecrations
 
-A website dedicated to Catholic Devotion of Our Lady.
+A website designed for Revive Scotland for promoting Consecrations.

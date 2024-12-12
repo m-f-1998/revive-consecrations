@@ -1,18 +1,19 @@
 import { DatePipe } from "@angular/common"
 import { ChangeDetectionStrategy, Component } from "@angular/core"
-import { consecration } from "@app/data"
+import { consecration } from "@consecrations/our-lady/data"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { faCalendar, faCalendarDay, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
+import { whatsapp_link } from "@consecrations/our-lady/data"
 
 @Component ( {
-    selector: "app-consecration",
-    imports: [
-        FontAwesomeModule
-    ],
-    templateUrl: "./consecration.component.html",
-    styleUrl: "./consecration.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-consecration",
+  imports: [
+    FontAwesomeModule
+  ],
+  templateUrl: "./consecration.component.html",
+  styleUrl: "./consecration.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class ConsecrationComponent {
   public faCalendar: any = faCalendar
@@ -21,15 +22,14 @@ export class ConsecrationComponent {
   public faInfo: any = faInfoCircle
   public consecration = consecration
 
-  public constructor (
-  ) { }
+  public constructor ( ) { }
 
   public goToDay ( day: {
     title: string;
     link: string;
     date: Date;
   } ) {
-    window.location.href = day.link
+    window.open ( day.link, "_blank" )
   }
 
   public isConsecrationActive ( ) {
@@ -40,11 +40,10 @@ export class ConsecrationComponent {
   }
 
   public joinUs ( ) {
-    // TODO: Implement WhatsApp link
-    alert ( "Join us on WhatsApp" )
+    window.open ( whatsapp_link, "_blank" )
   }
 
   public goToMore ( ) {
-    window.location.href = "https://www.catholiccompany.com/how-to-make-your-st-louis-de-montforts-total-consecration-to-jesus-through-mary/?srsltid=AfmBOoofnNaBCW3jVa4FUUKd-VFgEXi2XSgHJVrhvh4UikJZSFJv99gJ"
+    window.open ( "https://www.catholiccompany.com/how-to-make-your-st-louis-de-montforts-total-consecration-to-jesus-through-mary/?srsltid=AfmBOoofnNaBCW3jVa4FUUKd-VFgEXi2XSgHJVrhvh4UikJZSFJv99gV", "_blank" )
   }
 }

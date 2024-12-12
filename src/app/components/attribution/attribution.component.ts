@@ -26,6 +26,6 @@ export class AttributionComponent {
   }
 
   public goToAuthor ( ) {
-    window.location.href = "https://matthewfrankland.co.uk"
+    window.open ( "https://matthewfrankland.co.uk", "_blank" )
   }
 }

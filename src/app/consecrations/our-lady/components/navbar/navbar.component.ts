@@ -1,5 +1,5 @@
 import { Component } from "@angular/core"
-import { faBars, faBoxesStacked, faBrain, faCalendar, faClose, faEnvelope, faGlobe, faHouse, faImage, faPrayingHands } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faBrain, faCalendar, faClose, faGlobe, faPrayingHands } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 import { NgbCollapseModule } from "@ng-bootstrap/ng-bootstrap"
 

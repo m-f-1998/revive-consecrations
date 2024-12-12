@@ -1,7 +1,9 @@
-<footer id="footer" class="footer position-relative" style="background-color:var(--bs-secondary-bg)">
+<footer id="footer" class="footer">
   <div class="container">
-    <div class="d-flex justify-content-center align-items-center" (click)="goToAuthor()">
-      <img src="/img/author.jpg" alt="Matthew Frankland" class="clickable" style="border: 2px white solid; width: 60px; border-radius: 50%; margin-right: 10px;">
+    <div class="d-flex justify-content-center align-items-center">
+      <div (click)="goToAuthor()">
+        <img src="/img/author.jpg" alt="Matthew Frankland" class="clickable" style="border: 2px white solid; width: 60px; border-radius: 50%;">
+      </div>
     </div>
     <div class="copyright">
       <span>
@@ -15,13 +17,13 @@
       <a href="mailto:admin@matthewfrankland.co.uk">
         <fa-icon [icon]="faEmail"></fa-icon>
       </a>
-      <a href="https://github.com/m-f-1998">
+      <a href="https://github.com/m-f-1998" target="_blank">
         <fa-icon [icon]="faGithub"></fa-icon>
       </a>
-      <a href="https://www.linkedin.com/in/mf48/">
+      <a href="https://www.linkedin.com/in/mf48/" target="_blank">
         <fa-icon [icon]="faLinkedin"></fa-icon>
       </a>
-      <a href="https://matthewfrankland.co.uk">
+      <a href="https://matthewfrankland.co.uk" target="_blank">
         <fa-icon [icon]="faWebsite"></fa-icon>
       </a>
     </div>

@@ -5,6 +5,8 @@
   "compilerOptions": {
     "paths": {
       "@app/*": [ "./src/app/*" ],
+      "@components/*": [ "./src/app/components/*" ],
+      "@consecrations/*": [ "./src/app/consecrations/*" ],
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, QueryList, ViewChild, ViewChildren } from "@angular/core"
-import { prayers } from "@app/data"
+import { prayers } from "@consecrations/our-lady/data"
 import Isotope from "isotope-layout"
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { PrayerModalComponent } from "./prayer-modal/prayer-modal.component"
@@ -19,7 +19,7 @@ export class PrayersComponent implements AfterViewInit {
   private isotope!: Isotope
   public isTouchDevice: boolean = true
 
-  public currentFilter: string = "*"
+  public currentFilter: string = "devotional"
 
   public constructor (
     public modalSvc: NgbModal
@@ -31,10 +31,8 @@ export class PrayersComponent implements AfterViewInit {
         const element = img.nativeElement as HTMLImageElement
 
         if ( element.complete ) {
-          // Already loaded
           resolve ( )
         } else {
-          // Wait for load event
           element.onload = ( ) => resolve ( )
           element.onerror = ( ) => reject ( `Failed to load image: ${element.src}` )
         }
@@ -45,6 +43,7 @@ export class PrayersComponent implements AfterViewInit {
         itemSelector: ".isotope-item",
         layoutMode: "masonry"
       } )
+      this.filterItems ( "devotional" )
     } )
   }
 

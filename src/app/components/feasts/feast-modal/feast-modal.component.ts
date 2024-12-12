@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core"
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
 
 @Component ( {
-    selector: "app-feast-modal",
-    imports: [],
-    templateUrl: "./feast-modal.component.html",
-    styleUrl: "./feast-modal.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-feast-modal",
+  imports: [ ],
+  templateUrl: "./feast-modal.component.html",
+  styleUrl: "./feast-modal.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastModalComponent {
   @Input ( ) public feast: {

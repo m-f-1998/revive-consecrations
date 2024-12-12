@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "our-lady": {
+    "revive-consecrations": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +21,7 @@
               "aos",
               "isotope-layout"
             ],
-            "outputPath": "dist/our-lady",
+            "outputPath": "dist/revive-consecrations",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -80,10 +80,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "our-lady:build:production"
+              "buildTarget": "revive-consecrations:build:production"
             },
             "development": {
-              "buildTarget": "our-lady:build:development"
+              "buildTarget": "revive-consecrations:build:development"
             }
           },
           "defaultConfiguration": "development"
