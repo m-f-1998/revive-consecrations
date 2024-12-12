@@ -21,7 +21,7 @@
               "aos",
               "isotope-layout"
             ],
-            "outputPath": "dist/revive-consecrations",
+            "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
