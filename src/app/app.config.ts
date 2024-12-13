@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom, provideExperimentalZonelessChangeDetection } from "@angular/core"
-import { provideRouter } from "@angular/router"
+import { provideRouter, withInMemoryScrolling } from "@angular/router"
 import { routes } from "./app.routes"
 import { IMAGE_CONFIG } from "@angular/common"
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
@@ -16,6 +16,8 @@ export const appConfig: ApplicationConfig = {
       NgbModule
     ] ),
     provideExperimentalZonelessChangeDetection ( ),
-    provideRouter ( routes )
+    provideRouter ( routes, withInMemoryScrolling ( {
+      scrollPositionRestoration: "top"
+    } ) )
   ]
 }
