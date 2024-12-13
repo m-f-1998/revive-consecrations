@@ -2,7 +2,7 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from "@angu
 import { Router } from "@angular/router"
 import Isotope from "isotope-layout"
 import { AttributionComponent } from "../components/attribution/attribution.component";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faHandPointer, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @Component ( {
@@ -29,12 +29,11 @@ export class HomeComponent {
   @ViewChildren ( "prayerImage" ) imageRefs!: QueryList <ElementRef>
 
   public faInfo: any = faInfoCircle
+  public faCursor: any = faHandPointer
 
   public constructor (
     private router: Router
-  ) {
-
-  }
+  ) { }
 
   public ngInit ( ) {
     const load = this.imageRefs.toArray ( ).map ( img =>
