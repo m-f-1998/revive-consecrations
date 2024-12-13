@@ -55,7 +55,9 @@
   color: black;
   z-index: 3;
   transition: all ease-in-out 0.5s;
-  background: color-mix(in srgb, var(--background-color), transparent 0%);
+  // Background grayish white
+  background-color: #f8f9fa;
+  filter: brightness(0.8);
   padding: 15px;
 }
 
