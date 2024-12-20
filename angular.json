@@ -22,7 +22,10 @@
               "isotope-layout"
             ],
             "outputPath": "dist",
-            "index": "src/index.html",
+            "index": {
+              "input": "src/index.html",
+              "output": "index.html"
+            },
             "browser": "src/main.ts",
             "polyfills": [
               "@angular/localize/init"

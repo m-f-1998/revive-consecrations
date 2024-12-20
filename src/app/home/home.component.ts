@@ -1,7 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from "@angular/core"
 import { Router } from "@angular/router"
 import Isotope from "isotope-layout"
-import { AttributionComponent } from "../components/attribution/attribution.component";
 import { faHandPointer, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
@@ -9,7 +8,6 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
   selector: "app-home",
   templateUrl: "./home.component.html",
   imports: [
-    AttributionComponent,
     FontAwesomeModule
   ],
   styleUrl: "./home.component.scss"
@@ -20,7 +18,7 @@ export class HomeComponent {
       id: "our-lady",
       title: "Our Lady",
       description: "Consecrate yourself to the Blessed Virgin Mary.",
-      image: "/img/home-bg.jpg"
+      image: "/assets/img/home-bg.jpg"
     }
   ]
 
