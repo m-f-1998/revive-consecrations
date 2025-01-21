@@ -1,23 +1,32 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, QueryList, ViewChild, ViewChildren } from "@angular/core"
-import { prayers } from "@consecrations/our-lady/data"
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, input, InputSignal, Signal, viewChild, viewChildren } from "@angular/core"
 import Isotope from "isotope-layout"
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { PrayerModalComponent } from "./prayer-modal/prayer-modal.component"
 
+export interface Prayer {
+  category: string
+  description: string
+  key: string
+  name: string
+  text: string
+  url: string
+}
+
 @Component ( {
-    selector: "app-prayers",
-    imports: [],
-    templateUrl: "./prayers.component.html",
-    styleUrl: "./prayers.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-prayers",
+  imports: [],
+  templateUrl: "./prayers.component.html",
+  styleUrl: "./prayers.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class PrayersComponent implements AfterViewInit {
-  public prayers = prayers
-  @ViewChild ( "isotopeContainer", { static: false } ) isotopeContainer!: ElementRef
-  @ViewChildren ( "prayerImage" ) imageRefs!: QueryList <ElementRef>
+  public readonly isotopeContainer: Signal<ElementRef | undefined> = viewChild ( "isotopeContainer" )
+  public readonly imageRefs: Signal<readonly ElementRef [ ]> = viewChildren ( "prayerImage" )
 
   private isotope!: Isotope
   public isTouchDevice: boolean = true
+
+  public readonly prayers: InputSignal<Prayer [ ] | undefined> = input ( )
 
   public currentFilter: string = "devotional"
 
@@ -26,7 +35,7 @@ export class PrayersComponent implements AfterViewInit {
   ) { }
 
   public ngAfterViewInit ( ) {
-    const load = this.imageRefs.toArray ( ).map ( img =>
+    const load = this.imageRefs ().map ( img =>
       new Promise<void> ( ( resolve, reject ) => {
         const element = img.nativeElement as HTMLImageElement
 
@@ -39,7 +48,7 @@ export class PrayersComponent implements AfterViewInit {
       } )
     )
     Promise.all ( load ).then ( ( ) => {
-      this.isotope = new Isotope ( this.isotopeContainer.nativeElement, {
+      this.isotope = new Isotope ( this.isotopeContainer ()?.nativeElement, {
         itemSelector: ".isotope-item",
         layoutMode: "masonry"
       } )
@@ -57,7 +66,9 @@ export class PrayersComponent implements AfterViewInit {
   }
 
   public getCategories ( ) {
-    return Object.keys ( this.prayers )
+    const res = new Set<string> ( );
+    ( this.prayers ( ) ?? [ ] ).forEach ( ( prayer: Prayer ) => res.add ( prayer.category ) )
+    return [ ...res ]
   }
 
   public getCategoryTitle ( category: string ) {
@@ -65,20 +76,14 @@ export class PrayersComponent implements AfterViewInit {
   }
 
   public getPrayers ( category: string ) {
-    return this.prayers [ category ]
+    return ( this.prayers ( ) ?? [ ] ).filter ( ( prayer: any ) => prayer.category === category )
   }
 
   public getShortDescription ( description: string ) {
     return description.length > 80 ? `${description.slice ( 0, 80 )}...` : description
   }
 
-  public openPrayer ( prayer: {
-    id: string,
-    name: string,
-    description: string,
-    text: string,
-    image: string
-  } ) {
+  public openPrayer ( prayer: Prayer ) {
     const modalRef = this.modalSvc.open ( PrayerModalComponent, {
       centered: true,
       size: "lg",

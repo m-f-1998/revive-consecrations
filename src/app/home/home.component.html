@@ -18,12 +18,12 @@
       <div class="text-center mt-3 mb-3">
         + JMJ +
       </div>
-      <div #isotopeContainer class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+      <div #isotopeContainer class="row gy-4 isotope-container align-items-center" data-aos="fade-up" data-aos-delay="200">
         @for (consecration of consecrations; track $index) {
           <div
             class="clickable col-lg-4 col-md-6 prayers-item isotope-item"
             (click)="openConsecration(consecration.id)">
-            <img #prayerImage src="{{ consecration.image }}" class="img-fluid rounded w-100" alt="{{consecration.title}}">
+            <img #prayerImage src="{{ consecration.image }}" class="img-fluid rounded w-100" alt="{{consecration.title}}" style="height: 190px; object-fit: cover; object-position: top;">
             <div class="prayers-info show-hover">
               <h4>{{ consecration.title }}</h4>
               <p>{{ getShortDescription(consecration.description) }}</p>

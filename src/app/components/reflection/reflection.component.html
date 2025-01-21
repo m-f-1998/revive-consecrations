@@ -2,22 +2,30 @@
   <div class="reflection section-title" data-aos="fade-up">
     <h2>Reflections</h2>
   </div>
-  <div class="container-fluid mt-4" data-aos="fade-up">
-    <div class="w-100 text-center mb-4">
-      <div ngbDropdown class="d-inline-block">
-        <button type="button" class="btn btn-primary" ngbDropdownToggle>{{videos[selected].title}}</button>
-        <div ngbDropdownMenu>
-          @for (video of videos; track $index) {
-            <button ngbDropdownItem (click)="updateVideo($index)">
-              {{video.title}}
-            </button>
-          }
+  @if (videos() && videos()!.length > 0) {
+    <div class="container-fluid mt-4" data-aos="fade-up">
+      <div class="w-100 text-center mb-4">
+        <div ngbDropdown class="d-inline-block">
+          <button type="button" class="btn btn-primary" ngbDropdownToggle>
+            {{videos()![selected].title}}
+          </button>
+          <div ngbDropdownMenu>
+            @for (video of videos(); track $index) {
+              <button ngbDropdownItem (click)="updateVideo($index)">
+                {{video.title}}
+              </button>
+            }
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="video-container">
-      <youtube-player disablePlaceholder disableCookies [videoId]="videos[selected].id" [width]="videoWidth()" />
+      <div class="video-container">
+        <youtube-player disablePlaceholder disableCookies [videoId]="videos()![selected].slug" [width]="videoWidth()" />
+      </div>
     </div>
-  </div>
+  } @else {
+    <div>
+      <p class="text-center">No reflections available at the moment.</p>
+    </div>
+  }
 </section>

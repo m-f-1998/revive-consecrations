@@ -1,9 +1,16 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core"
-import { feasts, other_feasts } from "@consecrations/our-lady/data"
+import { ChangeDetectionStrategy, Component, input, InputSignal } from "@angular/core"
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { FeastModalComponent } from "./feast-modal/feast-modal.component"
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
+
+export interface Feast {
+  url: string
+  name: string
+  description: string
+  dateDescription: string | null
+  date: Date | null
+}
 
 @Component ( {
   selector: "app-feasts",
@@ -15,29 +22,14 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
   changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastsComponent {
-  public feasts = feasts
-  public other_feasts = other_feasts
-
-  public faInfo: any = faInfoCircle
+  public readonly feasts: InputSignal<Feast []> = input ( new Array<Feast> ( ) )
+  public faInfo = faInfoCircle
 
   public constructor (
     public modalSvc: NgbModal
   ) { }
 
-  public openEvent ( feast: {
-    name: string,
-    date: {
-      day: number,
-      month: number
-    },
-    description: string,
-    image: string
-  } | {
-    name: string,
-    date: string,
-    description: string,
-    image?: string
-  } ) {
+  public openEvent ( feast: Feast ) {
     const modalRef = this.modalSvc.open ( FeastModalComponent, {
       centered: true,
       size: "lg",
@@ -53,15 +45,15 @@ export class FeastsComponent {
     )
   }
 
-  public getDate ( date: {
-    day: number,
+  public getDate ( date: Date | null ): {
     month: number
-  } | string ): {
-    day: number,
-    month: number
+    day: number
   } | undefined {
-    if ( typeof date === "object" ) {
-      return date
+    if ( date ) {
+      return {
+        month: date.getMonth ( ) + 1,
+        day: date.getDate ( )
+      }
     }
     return undefined
   }

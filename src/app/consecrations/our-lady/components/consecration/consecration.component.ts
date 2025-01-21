@@ -7,7 +7,7 @@ import { faCalendar, faCalendarDay, faInfoCircle } from "@fortawesome/free-solid
 import { whatsapp_link } from "@consecrations/our-lady/data"
 
 @Component ( {
-  selector: "app-consecration",
+  selector: "app-our-lady-consecration",
   imports: [
     FontAwesomeModule
   ],
@@ -15,7 +15,7 @@ import { whatsapp_link } from "@consecrations/our-lady/data"
   styleUrl: "./consecration.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush
 } )
-export class ConsecrationComponent {
+export class OurLadyConsecrationComponent {
   public faCalendar: any = faCalendar
   public faCalendarDay: any = faCalendarDay
   public faWhatsApp: any = faWhatsapp
@@ -25,9 +25,9 @@ export class ConsecrationComponent {
   public constructor ( ) { }
 
   public goToDay ( day: {
-    title: string;
-    link: string;
-    date: Date;
+    title: string
+    link: string
+    date: Date
   } ) {
     window.open ( day.link, "_blank" )
   }
@@ -44,6 +44,9 @@ export class ConsecrationComponent {
   }
 
   public goToMore ( ) {
-    window.open ( "https://www.catholiccompany.com/how-to-make-your-st-louis-de-montforts-total-consecration-to-jesus-through-mary/?srsltid=AfmBOoofnNaBCW3jVa4FUUKd-VFgEXi2XSgHJVrhvh4UikJZSFJv99gV", "_blank" )
+    window.open (
+      "https://www.catholiccompany.com/how-to-make-your-st-louis-de-montforts-total-consecration-to-jesus-through-mary/",
+      "_blank"
+    )
   }
 }

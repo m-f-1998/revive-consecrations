@@ -1,46 +1,47 @@
-import { Component } from "@angular/core"
+import { ChangeDetectionStrategy, Component } from "@angular/core"
 import { faBars, faBrain, faCalendar, faClose, faGlobe, faPrayingHands } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 import { NgbCollapseModule } from "@ng-bootstrap/ng-bootstrap"
 
 @Component ( {
-    selector: "app-navbar",
-    imports: [
-        FontAwesomeModule,
-        NgbCollapseModule
-    ],
-    templateUrl: "./navbar.component.html",
-    styleUrl: "./navbar.component.scss"
+  selector: "app-our-lady-navbar",
+  imports: [
+    FontAwesomeModule,
+    NgbCollapseModule
+  ],
+  templateUrl: "./navbar.component.html",
+  styleUrl: "./navbar.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class NavbarComponent {
   public faBars: any = faBars
   public faClose: any = faClose
   public items: {
-    name: string,
-    id: string,
+    name: string
+    id: string
     icon: any
-  }[ ] = [
-    {
-      name: "Feasts",
-      id: "feasts",
-      icon: faCalendar
-    },
-    {
-      name: "Prayers",
-      id: "prayers",
-      icon: faPrayingHands
-    },
-    {
-      name: "Reflections",
-      id: "reflection",
-      icon: faBrain
-    },
-    {
-      name: "Total Consecration",
-      id: "consecration",
-      icon: faGlobe
-    }
-  ]
+  } [ ] = [
+      {
+        name: "Feasts",
+        id: "feasts",
+        icon: faCalendar
+      },
+      {
+        name: "Prayers",
+        id: "prayers",
+        icon: faPrayingHands
+      },
+      {
+        name: "Reflections",
+        id: "reflection",
+        icon: faBrain
+      },
+      {
+        name: "Total Consecration",
+        id: "consecration",
+        icon: faGlobe
+      }
+    ]
   public isNavCollapsed = true
 
   public scrollto ( id: string ) {
@@ -49,7 +50,7 @@ export class NavbarComponent {
       element.scrollIntoView ( { behavior: "smooth" } )
       if ( document.getElementsByClassName ( "navbar-toggler" ).length > 0 ) {
         if ( !document.getElementsByClassName ( "navbar-toggler" ) [ 0 ].classList.contains ( "collapsed" ) ) {
-          (document.getElementsByClassName ( "navbar-toggler" ) [ 0 ] as HTMLButtonElement ).click ( )
+          ( document.getElementsByClassName ( "navbar-toggler" ) [ 0 ] as HTMLButtonElement ).click ( )
         }
       }
     }

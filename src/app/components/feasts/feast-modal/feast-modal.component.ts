@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core"
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
+import { Feast } from "../feasts.component"
 
 @Component ( {
   selector: "app-feast-modal",
@@ -9,15 +10,7 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
   changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastModalComponent {
-  @Input ( ) public feast: {
-    name: string,
-    date?: {
-      day: number,
-      month: number
-    } | string,
-    description: string,
-    image?: string
-  } | undefined
+  @Input ( ) public feast: Feast | undefined
 
   public constructor (
     private activeModal: NgbActiveModal
@@ -25,19 +18,16 @@ export class FeastModalComponent {
 
   public getMonthName ( month: number ): string {
     return new Intl.DateTimeFormat ( "en-US", { month: "long" } ).format (
-      new Date ( 2024, month - 1, 1 )
+      new Date ( 2024, month, 1 )
     )
   }
 
-  public getDate ( date: {
-    day: number,
-    month: number
-  } | string ): string | null {
-    if ( typeof date === "object" ) {
-      return `${date.day} ${this.getMonthName ( date.month )}`
-    } else {
-      return null
+  public getDate ( date: Date | null | undefined ): string | null {
+    if ( date ) {
+      return `${date.getDate ( )} ${this.getMonthName ( date.getMonth ( ) )}`
     }
+
+    return ""
   }
 
   public close ( ) {

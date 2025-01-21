@@ -1,0 +1,16 @@
+@if (!loading()) {
+  <app-our-lady-navbar />
+  <app-home />
+  <app-feasts data-aos="fade-up" [feasts]="feasts" />
+  <app-prayers [prayers]="prayers" />
+  <app-reflection [videos]="videos" />
+  <app-our-lady-consecration />
+  <app-attribution />
+} @else {
+  <div class="container-fluid">
+    <div>
+      <!-- TODO -->
+      Loading...
+    </div>
+  </div>
+}

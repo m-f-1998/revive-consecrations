@@ -1,0 +1,24 @@
+<header>
+  <nav class="navbar navbar-expand-md bg-body-tertiary p-0">
+    <div class="container-fluid">
+      <button class="navbar-toggler m-2" type="button" (click)="isNavCollapsed = !isNavCollapsed" aria-expanded="false" aria-label="Toggle Navigation" style="color: white;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div [ngbCollapse]="isNavCollapsed" class="navbar-collapse">
+        <ul class="navbar-nav">
+          @for (item of items; track $index) {
+            <li class="nav-item">
+              <a class="nav-link smooth-scroll" (click)="scrollto(item.id)">
+                <fa-icon [icon]="item.icon" class="me-2"></fa-icon>
+                {{item.name}}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+      <a class="navbar-brand" href="https://www.revivescotland.co.uk/">
+        <img src="/assets/img/revive/logo.png" alt="Revive Logo" width="70" height="34">
+      </a>
+    </div>
+  </nav>
+</header>

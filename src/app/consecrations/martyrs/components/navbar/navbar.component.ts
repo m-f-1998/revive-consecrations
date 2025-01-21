@@ -1,0 +1,53 @@
+import { ChangeDetectionStrategy, Component } from "@angular/core"
+import { faBars, faBrain, faCalendar, faClose, faPrayingHands } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
+import { NgbCollapseModule } from "@ng-bootstrap/ng-bootstrap"
+
+@Component ( {
+  selector: "app-martyrs-navbar",
+  imports: [
+    FontAwesomeModule,
+    NgbCollapseModule
+  ],
+  templateUrl: "./navbar.component.html",
+  styleUrl: "./navbar.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
+} )
+export class NavbarComponent {
+  public faBars = faBars
+  public faClose = faClose
+  public items: {
+    name: string
+    id: string
+    icon: any
+  } [ ] = [
+      {
+        name: "Feasts",
+        id: "feasts",
+        icon: faCalendar
+      },
+      {
+        name: "Prayers",
+        id: "prayers",
+        icon: faPrayingHands
+      },
+      {
+        name: "Reflections",
+        id: "reflection",
+        icon: faBrain
+      }
+    ]
+  public isNavCollapsed = true
+
+  public scrollto ( id: string ) {
+    const element = document.getElementById ( id )
+    if ( element ) {
+      element.scrollIntoView ( { behavior: "smooth" } )
+      if ( document.getElementsByClassName ( "navbar-toggler" ).length > 0 ) {
+        if ( !document.getElementsByClassName ( "navbar-toggler" ) [ 0 ].classList.contains ( "collapsed" ) ) {
+          ( document.getElementsByClassName ( "navbar-toggler" ) [ 0 ] as HTMLButtonElement ).click ( )
+        }
+      }
+    }
+  }
+}

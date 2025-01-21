@@ -18,7 +18,7 @@ export class ErrorComponent {
   public description = "Something went wrong."
   public faHome = faHome
 
-  constructor (
+  public constructor (
     private route: ActivatedRoute,
     private router: Router
   ) {
