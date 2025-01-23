@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core"
+import { ChangeDetectionStrategy, Component, input, InputSignal } from "@angular/core"
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
-import { Feast } from "../feasts.component"
+import { Feast } from "@app/revive-consecrations.types"
 
 @Component ( {
   selector: "app-feast-modal",
@@ -10,7 +10,7 @@ import { Feast } from "../feasts.component"
   changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class FeastModalComponent {
-  @Input ( ) public feast: Feast | undefined
+  public readonly feast: InputSignal<Feast | undefined> = input ( )
 
   public constructor (
     private activeModal: NgbActiveModal

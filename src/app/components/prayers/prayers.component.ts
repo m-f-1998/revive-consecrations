@@ -2,15 +2,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, input, I
 import Isotope from "isotope-layout"
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { PrayerModalComponent } from "./prayer-modal/prayer-modal.component"
-
-export interface Prayer {
-  category: string
-  description: string
-  key: string
-  name: string
-  text: string
-  url: string
-}
+import { Prayer } from "@app/revive-consecrations.types"
 
 @Component ( {
   selector: "app-prayers",
@@ -26,7 +18,7 @@ export class PrayersComponent implements AfterViewInit {
   private isotope!: Isotope
   public isTouchDevice: boolean = true
 
-  public readonly prayers: InputSignal<Prayer [ ] | undefined> = input ( )
+  public readonly prayers: InputSignal<Prayer [ ]> = input ( new Array<Prayer> ( ) )
 
   public currentFilter: string = "devotional"
 

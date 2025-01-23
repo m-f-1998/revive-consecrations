@@ -1,10 +1,9 @@
 import { DatePipe } from "@angular/common"
 import { ChangeDetectionStrategy, Component } from "@angular/core"
-import { consecration } from "@consecrations/our-lady/data"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 import { faCalendar, faCalendarDay, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
-import { whatsapp_link } from "@consecrations/our-lady/data"
+import { our_lady } from "@app/consecrations"
 
 @Component ( {
   selector: "app-our-lady-consecration",
@@ -20,7 +19,7 @@ export class OurLadyConsecrationComponent {
   public faCalendarDay: any = faCalendarDay
   public faWhatsApp: any = faWhatsapp
   public faInfo: any = faInfoCircle
-  public consecration = consecration
+  public consecration = our_lady
 
   public constructor ( ) { }
 
@@ -36,11 +35,11 @@ export class OurLadyConsecrationComponent {
     const today = new Date ( )
     const datePipe = new DatePipe ( "en-US" )
     const todayString = datePipe.transform ( today, "yyyy-MM-dd" )
-    return this.consecration.findIndex ( day => datePipe.transform ( day.date, "yyyy-MM-dd" ) === todayString )
+    return this.consecration.text.findIndex ( day => datePipe.transform ( day.date, "yyyy-MM-dd" ) === todayString )
   }
 
   public joinUs ( ) {
-    window.open ( whatsapp_link, "_blank" )
+    window.open ( this.consecration.whatsapp, "_blank" )
   }
 
   public goToMore ( ) {

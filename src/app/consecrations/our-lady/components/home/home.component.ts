@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core"
 import Typed from "typed.js"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
-import { litany } from "@app/consecrations/our-lady/data"
+import { our_lady } from "@app/litanies"
 
 @Component ( {
   selector: "app-home",
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit ( ) {
     this.typed = new Typed ( "#typed", {
-      strings: litany,
+      strings: our_lady.items,
       typeSpeed: 60,
     } )
   }

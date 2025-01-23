@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core"
+import { ChangeDetectionStrategy, Component, input, InputSignal } from "@angular/core"
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap"
-import { Prayer } from "../prayers.component"
+import { Prayer } from "@app/revive-consecrations.types"
 
 @Component ( {
   selector: "app-prayer-modal",
@@ -10,7 +10,7 @@ import { Prayer } from "../prayers.component"
   changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class PrayerModalComponent {
-  @Input ( ) public prayer: Prayer | undefined
+  public readonly prayer: InputSignal<Prayer | undefined> = input ( )
 
   public constructor (
     private activeModal: NgbActiveModal

@@ -80,6 +80,9 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "hmr": false
+          },
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {

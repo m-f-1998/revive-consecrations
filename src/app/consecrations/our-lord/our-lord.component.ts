@@ -6,6 +6,9 @@ import { ReflectionComponent } from "@components/reflection/reflection.component
 import { NavbarComponent } from "@consecrations/our-lord/components/navbar/navbar.component"
 import { ApiService } from "@app/services/api.service"
 import { HomeComponent } from "./components/home/home.component"
+import { faSpinner } from "@fortawesome/free-solid-svg-icons"
+import { FaIconComponent } from "@fortawesome/angular-fontawesome"
+import { Prayer, Feast, Video } from "@app/revive-consecrations.types"
 
 @Component ( {
   selector: "app-our-lord-home",
@@ -15,6 +18,7 @@ import { HomeComponent } from "./components/home/home.component"
     HomeComponent,
     FeastsComponent,
     PrayersComponent,
+    FaIconComponent,
     AttributionComponent,
     ReflectionComponent
   ],
@@ -22,12 +26,14 @@ import { HomeComponent } from "./components/home/home.component"
   changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class OurLordHomeComponent {
-  public prayers: any = { }
-  public feasts: any = { }
-  public videos: any = { }
+  public prayers: Prayer [ ] = [ ]
+  public feasts: Feast [ ] = [ ]
+  public videos: Video [ ] = [ ]
 
   public readonly loading = signal ( true )
   public readonly error = signal ( false )
+
+  public faSpinner = faSpinner
 
   public constructor (
     private apiSvc: ApiService

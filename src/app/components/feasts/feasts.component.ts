@@ -3,14 +3,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap"
 import { FeastModalComponent } from "./feast-modal/feast-modal.component"
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
-
-export interface Feast {
-  url: string
-  name: string
-  description: string
-  dateDescription: string | null
-  date: Date | null
-}
+import { Feast } from "@app/revive-consecrations.types"
 
 @Component ( {
   selector: "app-feasts",
