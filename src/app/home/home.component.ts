@@ -17,7 +17,7 @@ export class HomeComponent {
     {
       id: "our-lord",
       title: "Our Lord",
-      description: "Consecrate yourself to the Our Blessed Lord.",
+      description: "Prayers to Our Blessed Lord.",
       image: "/assets/img/background/our-lord.jpg"
     },
     {
