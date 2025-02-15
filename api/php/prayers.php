@@ -1,7 +1,17 @@
 <?php
 
 header ( "Content-Type: application/json; charset=utf-8" );
-header ( "Access-Control-Allow-Origin: http://localhost" );
+
+$allowedOrigins = [
+  "https://revive-consecrations.co.uk",
+  "https://www.revive-consecrations.co.uk",
+  "http://localhost:4200",
+];
+$origin = $_SERVER [ "HTTP_ORIGIN" ] ?? "";
+
+if ( in_array ( $origin, $allowedOrigins ) ) {
+  header ( "Access-Control-Allow-Origin: $origin" );
+}
 
 if ( $_SERVER [ "REQUEST_METHOD" ] === "GET" ) {
 
