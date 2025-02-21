@@ -140,7 +140,6 @@ Thumbs.db
 /out-tsc
 /bazel-out
 /dist
-/*.js
 /*.js.map
 /*.d.ts
 

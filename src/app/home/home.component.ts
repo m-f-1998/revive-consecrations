@@ -1,4 +1,4 @@
-import { Component, ElementRef, Signal, viewChild, viewChildren } from "@angular/core"
+import { ChangeDetectionStrategy, Component, ElementRef, Signal, viewChild, viewChildren } from "@angular/core"
 import { Router } from "@angular/router"
 import Isotope from "isotope-layout"
 import { faHandPointer, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
@@ -10,7 +10,8 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome"
   imports: [
     FontAwesomeModule
   ],
-  styleUrl: "./home.component.scss"
+  styleUrl: "./home.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush
 } )
 export class HomeComponent {
   public consecrations = [

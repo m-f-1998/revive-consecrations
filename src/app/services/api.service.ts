@@ -12,18 +12,6 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
-  private getDefaultHeaders ( method: string ) {
-    const headers: any = { }
-    if ( method == "POST" ) {
-      headers [ "Content-Type" ] = "application/json;charset=UTF-8"
-    }
-    return headers
-  }
-
-  private removeFirstSlash ( url: string ) {
-    return url [ 0 ] === "/" ? url.substring ( 1 ) : url
-  }
-
   public getData ( category: string ) {
     return Promise.all ( [
       this.get ( "prayers.php", {
@@ -36,6 +24,18 @@ export class ApiService {
         category
       } )
     ] )
+  }
+
+  private getDefaultHeaders ( method: string ) {
+    const headers: any = { }
+    if ( method == "POST" ) {
+      headers [ "Content-Type" ] = "application/json;charset=UTF-8"
+    }
+    return headers
+  }
+
+  private removeFirstSlash ( url: string ) {
+    return url [ 0 ] === "/" ? url.substring ( 1 ) : url
   }
 
   private get ( url: string, query: any = {}, options = {}, noHeaders = false ) {

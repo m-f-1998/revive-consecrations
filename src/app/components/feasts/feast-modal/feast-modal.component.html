@@ -1,23 +1,23 @@
 <div class="modal-header">
-  <h5 class="modal-title">{{feast()?.name}}</h5>
+  <h5 class="modal-title">{{feast?.name}}</h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
 </div>
 <div class="modal-body">
   <div class="row">
-    <div [class]="feast()?.url ? 'col-md-6' : ''">
-      @if (feast()?.date) {
-        @let date = getDate(feast()?.date);
+    <div [class]="feast?.url ? 'col-md-6' : ''">
+      @if (feast?.date) {
+        @let date = getDate(feast?.date);
         <p><i>Feast celebrated on: {{date}}</i></p>
       } @else {
         <p>
-          <i>Celebration: {{feast()?.dateDescription}}</i>
+          <i>Celebration: {{feast?.dateDescription}}</i>
         </p>
       }
-      <p>{{feast()?.description}}</p>
+      <p>{{feast?.description}}</p>
     </div>
-    @if (feast() && feast()?.url) {
+    @if (feast && feast.url) {
       <div class="col-md-6 text-center align-content-center">
-        <img src="{{feast()?.url}}" alt="{{feast()?.name}}" class="img-fluid">
+        <img src="{{feast.url}}" alt="{{feast.name}}" class="img-fluid">
       </div>
     }
   </div>

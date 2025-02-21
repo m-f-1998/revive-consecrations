@@ -14,13 +14,12 @@ import { Prayer } from "@app/revive-consecrations.types"
 export class PrayersComponent implements AfterViewInit {
   public readonly isotopeContainer: Signal<ElementRef | undefined> = viewChild ( "isotopeContainer" )
   public readonly imageRefs: Signal<readonly ElementRef [ ]> = viewChildren ( "prayerImage" )
-
-  private isotope!: Isotope
-  public isTouchDevice: boolean = true
-
   public readonly prayers: InputSignal<Prayer [ ]> = input ( new Array<Prayer> ( ) )
 
+  public isTouchDevice: boolean = true
   public currentFilter: string = "devotional"
+
+  private isotope!: Isotope
 
   public constructor (
     public modalSvc: NgbModal
