@@ -1,0 +1,35 @@
+<section style="background-color:var(--bs-tertiary-bg)" id="feasts">
+  <div class="container section-title">
+    <h2>Feasts</h2>
+  </div>
+  <div class="container-fluid m-0 w-100 mt-4 mb-4" id="ordo">
+    <div class="d-flex overflow-auto gap-3 feasts pb-3 mb-4 justify-content-evenly">
+      @for (feast of feasts(); track $index) {
+        <div class="calendar-card text-center border rounded shadow-sm position-relative" (click)="openEvent(feast)">
+          <div class="red-bar"></div>
+          @if (feast.date) {
+            <div id="date">
+              @let date = getDate(feast.date);
+              @if (date) {
+                <div class="day fs-1 fw-bold">{{ date.day }}</div>
+                <div class="month text-uppercase">{{ getMonthName ( date.month ) }}</div>
+              } @else {
+                <div class="day fs-1 fw-bold">{{ feast.date }}</div>
+              }
+            </div>
+          } @else {
+            <div id="date">
+              <div class="day fs-1 fw-bold">&nbsp;</div>
+              <div class="month text-uppercase">
+                <i>{{ feast.datedescription }}</i>
+              </div>
+            </div>
+          }
+          <div class="title">
+            {{ feast.name }}
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

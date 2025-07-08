@@ -1,0 +1,15 @@
+@if (!loading()) {
+  <app-angels-navbar />
+  <app-home />
+  <app-feasts [feasts]="feasts" />
+  <app-prayers [prayers]="prayers" />
+  <app-reflection [videos]="videos" />
+  <app-attribution />
+} @else {
+  <div class="container mt-4 text-center" style="opacity:.3;">
+    <fa-icon [icon]="iconSvc.getIcon('fas', 'spinner')" size="4x" animation="spin" />
+    <h5 class="mt-3">
+      Loading...
+    </h5>
+  </div>
+}

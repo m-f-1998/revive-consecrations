@@ -1,0 +1,31 @@
+<section style="background-color:var(--bs-secondary-bg)" id="reflection">
+  <div class="reflection section-title">
+    <h2>Reflections</h2>
+  </div>
+  @if (videos() && videos()!.length > 0) {
+    <div class="container-fluid mt-4">
+      <div class="w-100 text-center mb-4">
+        <div ngbDropdown class="d-inline-block">
+          <button type="button" class="btn btn-primary" ngbDropdownToggle>
+            {{videos()![selected].title}}
+          </button>
+          <div ngbDropdownMenu>
+            @for (video of videos(); track $index) {
+              <button ngbDropdownItem (click)="updateVideo($index)">
+                {{video.title}}
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="video-container">
+        <youtube-player disablePlaceholder disableCookies [videoId]="videos()![selected].slug" [width]="videoWidth()" />
+      </div>
+    </div>
+  } @else {
+    <div>
+      <p class="text-center">No reflections available at the moment.</p>
+    </div>
+  }
+</section>

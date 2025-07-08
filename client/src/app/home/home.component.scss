@@ -1,0 +1,52 @@
+.background {
+  background-image: url('/assets/img/revive/weekends.png');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.logo {
+  max-width: 300px;
+}
+
+.prayers-info {
+  opacity: 0;
+  bottom: -100%;
+  color: black;
+  z-index: 3;
+  transition: all ease-in-out 0.5s;
+  background: color-mix(in srgb, var(--background-color), transparent 0%);
+  padding: 15px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.prayers-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.prayers-info p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.prayers-info {
+  opacity: 1;
+  bottom: 0;
+}
+
+.prayers-item {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.isotope-container {
+  justify-content: center;
+}
