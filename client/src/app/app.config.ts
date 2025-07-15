@@ -3,7 +3,7 @@ import { provideRouter, withInMemoryScrolling } from "@angular/router"
 import { routes } from "./app.routes"
 import { IMAGE_CONFIG } from "@angular/common"
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap"
-import { provideHttpClient } from "@angular/common/http"
+import { provideHttpClient, withFetch } from "@angular/common/http"
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +20,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter ( routes, withInMemoryScrolling ( {
       scrollPositionRestoration: "top"
     } ) ),
-    provideHttpClient ( )
+    provideHttpClient (
+      withFetch ( )
+    )
   ]
 }
