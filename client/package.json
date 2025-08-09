@@ -21,12 +21,12 @@
     "@angular/common": "^20.0.6",
     "@angular/compiler": "^20.0.6",
     "@angular/core": "^20.0.6",
-    "@angular/forms": "^20.1.4",
+    "@angular/forms": "^20.1.6",
     "@angular/platform-browser": "^20.0.6",
-    "@angular/platform-browser-dynamic": "^20.1.4",
-    "@angular/router": "^20.1.4",
-    "@angular/youtube-player": "^20.1.4",
-    "@fortawesome/angular-fontawesome": "^2.0.1",
+    "@angular/platform-browser-dynamic": "^20.1.6",
+    "@angular/router": "^20.1.6",
+    "@angular/youtube-player": "^20.1.5",
+    "@fortawesome/angular-fontawesome": "^3.0.00",
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
     "@fortawesome/free-regular-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
@@ -40,15 +40,15 @@
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
-    "@angular/build": "^20.1.4",
-    "@angular/cli": "^20.1.4",
+    "@angular/build": "^20.1.5",
+    "@angular/cli": "^20.1.5",
     "@angular/compiler-cli": "^20.0.6",
-    "@angular/localize": "^20.1.4",
-    "@stylistic/eslint-plugin": "^5.2.2",
+    "@angular/localize": "^20.1.6",
+    "@stylistic/eslint-plugin": "^5.2.3",
     "@types/isotope-layout": "^3.0.15",
     "angular-eslint": "^20.1.1",
     "eslint-plugin-prefer-arrow-functions": "^3.6.2",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.38.0"
+    "typescript-eslint": "^8.39.0"
   }
 }
