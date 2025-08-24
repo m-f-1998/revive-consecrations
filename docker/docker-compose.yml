@@ -8,6 +8,7 @@ services:
     ports:
       - "3000:3000"
     container_name: revive-consecrations
+    # Environment variables required in Override file
     depends_on:
       - db
   db:
@@ -15,16 +16,21 @@ services:
     container_name: revive-consecrations-db
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      test: ["CMD-SHELL", "pg_isready -U matthew -d reviveconsecrations"]
       interval: 10s
       timeout: 5s
       retries: 5
     volumes:
       - db-data:/var/lib/postgresql/data
       - ../db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-
+      - ../db/pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+      - ../db/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+    networks:
+      - revive-network
+    command: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
+    security_opt:
+      - no-new-privileges:true
 volumes:
   db-data:
 networks:
-  default:
-    name: revive-network
+  revive-network:
