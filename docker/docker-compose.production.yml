@@ -40,4 +40,7 @@ volumes:
   db-data:
 networks:
   revive-network:
+    name: revive-network
   proxy:
+    external: true
+    name: proxy
