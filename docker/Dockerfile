@@ -7,8 +7,7 @@ WORKDIR /app
 # Copy package.json files and install all dependencies
 # The --chown flag ensures correct file permissions for the 'node' user
 COPY --chown=node:node client/package*.json client/
-COPY --chown=node:node server/package*.json server/
-RUN npm install
+RUN cd client && npm i
 
 # Copy all source code
 COPY --chown=node:node . .
