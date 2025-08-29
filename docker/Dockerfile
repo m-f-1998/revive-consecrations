@@ -25,8 +25,8 @@ RUN chown -R node:node /home/node
 WORKDIR /node
 
 # Copy server output
-COPY --chown=node:node server/dist /node/server
-COPY --chown=node:node server/package*.json /node/server
+COPY --chown=node:node --from=builder server/dist /node/server
+COPY --chown=node:node --from=builder server/package*.json /node/server
 
 # Copy Angular dist
 COPY --chown=node:node client/dist/browser /node/client
