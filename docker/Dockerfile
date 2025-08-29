@@ -8,8 +8,8 @@ FROM node:slim AS builder
 
 WORKDIR /app
 
-COPY client/package*.json ./client/
-COPY server/package*.json ./server/
+COPY client ./client
+COPY server ./server
 
 RUN cd ./client && npm i && npm run build && cd ..
 RUN cd ./server && npm i && npx --yes tsc && cd ..
