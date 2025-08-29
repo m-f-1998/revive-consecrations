@@ -9,6 +9,9 @@ services:
     # Environment variables required in Override file
     depends_on:
       - db
+    networks:
+      - proxy
+      - revive-network
     environment:
       DB:
       USER:
@@ -35,6 +38,3 @@ services:
       POSTGRES_PASSWORD:
 volumes:
   db-data:
-networks:
-  revive-network:
-  proxy:
