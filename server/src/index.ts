@@ -49,10 +49,7 @@ app.use ( helmet ( {
       ],
       scriptSrc: [
         "'self'",
-        "www.googletagmanager.com",
-        "https://www.youtube.com",
-        "https://www.googletagmanager.com",
-        "https://static.cloudflareinsights.com"
+        "www.googletagmanager.com"
       ],
       styleSrc: [
         "'self'",
@@ -62,6 +59,9 @@ app.use ( helmet ( {
       scriptSrcElem: [
         "'self'",
         "'unsafe-inline'",
+        "https://www.youtube.com",
+        "https://www.googletagmanager.com",
+        "https://static.cloudflareinsights.com"
         // ( _req, res ) => `'nonce-${( res as Response ).locals[ "cspNonce" ]}'`
       ],
       imgSrc: [
