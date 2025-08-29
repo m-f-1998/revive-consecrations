@@ -29,7 +29,7 @@ COPY --chown=node:node --from=builder server/dist /node/server
 COPY --chown=node:node --from=builder server/package*.json /node/server
 
 # Copy Angular dist
-COPY --chown=node:node client/dist/browser /node/client
+COPY --chown=node:node /app/client/dist/browser /node/client
 
 RUN apt-get update && apt-get install -y --no-install-recommends nano
 
