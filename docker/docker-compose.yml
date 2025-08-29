@@ -25,7 +25,6 @@ services:
       - ../db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
       - revive-network
-    command: ["-c", "config_file=/etc/postgresql/postgresql.conf"]
     security_opt:
       - no-new-privileges:true
 volumes:
