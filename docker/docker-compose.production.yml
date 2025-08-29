@@ -13,9 +13,9 @@ services:
       - proxy
       - revive-network
     environment:
-      DB:
-      USER:
-      PASS:
+      POSTGRES_DB:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
   db:
     image: postgres:alpine
     container_name: revive-consecrations-db
