@@ -1,3 +1,22 @@
+# Stage 1: Build the application
+FROM node:slim as builder
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json files and install all dependencies
+# The --chown flag ensures correct file permissions for the 'node' user
+COPY --chown=node:node client/package*.json client/
+COPY --chown=node:node server/package*.json server/
+RUN npm install
+
+# Copy all source code
+COPY --chown=node:node . .
+
+# Build the frontend and server (replace with your actual build command)
+RUN cd client && npm run build
+
+# Stage 2: The Final Runtime Stage
 FROM node:slim
 
 RUN mkdir -p /home/node
