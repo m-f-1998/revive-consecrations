@@ -49,7 +49,10 @@ app.use ( helmet ( {
       ],
       scriptSrc: [
         "'self'",
-        "www.googletagmanager.com"
+        "www.googletagmanager.com",
+        "https://www.youtube.com",
+        "https://www.googletagmanager.com",
+        "https://static.cloudflareinsights.com"
       ],
       styleSrc: [
         "'self'",
