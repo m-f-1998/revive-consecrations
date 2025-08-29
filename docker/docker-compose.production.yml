@@ -38,3 +38,6 @@ services:
       POSTGRES_PASSWORD:
 volumes:
   db-data:
+networks:
+  revive-network:
+  proxy:
