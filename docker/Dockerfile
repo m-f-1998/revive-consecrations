@@ -11,8 +11,8 @@ WORKDIR /app
 COPY client/package*.json ./client/
 COPY server/package*.json ./server/
 
-RUN cd ./client && npm ci && npm run build && cd ..
-RUN cd ./server && npm ci && npx --yes tsc && cd ..
+RUN cd ./client && npm i && npm run build && cd ..
+RUN cd ./server && npm i && npx --yes tsc && cd ..
 
 FROM node:slim
 
