@@ -27,13 +27,13 @@ The backend server requires the following environment variables to function prop
 
 | Variable              | Description                         |
 |-----------------------|-------------------------------------|
-| `DB` | The name of the connected postgres database |
-| `USER`           | The user connected to the database |
-| `PASS`           | The password for the database |
+| `POSTGRES_DB` | The name of the connected postgres database |
+| `POSTGRES_USER`           | The user connected to the database |
+| `POSTGRES_PASSWORD`           | The password for the database |
 
 ## 📁 Example `.env` (for local dev)
 
 ```env
-DB=ordo-1962
-USER=your@email.com
-PASS=yourpassword
+POSTGRES_DB=ordo-1962
+POSTGRES_USER=your@email.com
+POSTGRES_PASSWORD=yourpassword
