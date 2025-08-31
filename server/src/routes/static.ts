@@ -27,7 +27,8 @@ router.get ( "*get", async ( _req: Request, res: Response ) => {
 
 const injectGoogleTagManager = ( html: string, nonce: string ): string => {
   // Add the above between the </head> and <body> tags
-  const gtmScript = `<script nonce="${nonce}" async src="https://www.googletagmanager.com/gtag/js?id=G-LTW2QDJH02"></script>
+  const gtmScript = `<script nonce="${nonce}" async src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "56e3251344364a35b492c0c317d0c18d"}'></script>
+    <script nonce="${nonce}" async src="https://www.googletagmanager.com/gtag/js?id=G-LTW2QDJH02"></script>
     <script nonce="${nonce}">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
