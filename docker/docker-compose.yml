@@ -21,7 +21,7 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql
       - ../db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
       - revive-network
