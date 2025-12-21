@@ -20,16 +20,16 @@
     "@angular/common": "^21.0.5",
     "@angular/compiler": "^21.0.5",
     "@angular/core": "^21.0.5",
-    "@angular/forms": "^21.0.5",
+    "@angular/forms": "^21.0.6",
     "@angular/platform-browser": "^21.0.5",
-    "@angular/platform-browser-dynamic": "^21.0.5",
-    "@angular/router": "^21.0.5",
-    "@angular/youtube-player": "^21.0.3",
+    "@angular/platform-browser-dynamic": "^21.0.6",
+    "@angular/router": "^21.0.6",
+    "@angular/youtube-player": "^21.0.5",
     "@fortawesome/angular-fontawesome": "^4.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
-    "@m-f-1998/ngx-toastr": "^1.0.2",
+    "@m-f-1998/ngx-toastr": "^1.0.3",
     "@ng-bootstrap/ng-bootstrap": "^20.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.8",
@@ -40,15 +40,15 @@
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.0.3",
-    "@angular/cli": "^21.0.3",
+    "@angular/build": "^21.0.4",
+    "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^21.0.5",
-    "@angular/localize": "^21.0.5",
+    "@angular/localize": "^21.0.6",
     "@stylistic/eslint-plugin": "^5.6.1",
     "@types/isotope-layout": "^3.0.15",
-    "angular-eslint": "^20.7.0",
+    "angular-eslint": "^21.1.0",
     "eslint-plugin-prefer-arrow-functions": "^3.9.1",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.49.0"
+    "typescript-eslint": "^8.50.0"
   }
 }
